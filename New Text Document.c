@@ -1,19 +1,23 @@
-#include <stdio.h>
-+unsigned reduce(unsigned num, unsigned k) {
-+  if (k <= 0) {
-+    return num;  // Success
-+  }
-+  if (num == 0) {
-+    return 10;  // Fail
-+  }
-+  unsigned path1 = reduce(num/10, k)*10 + num%10;
-+  unsigned path2 = reduce(num/10, k-1);
-+  return path1 < path2 ? path1 : path2;
-+}
-+
-+int main(void) {
-+  int n,k;
-+  scanf("%d%d",&n,&k);
-+  printf("%u\n", reduce(n,k));
-+  return 0;
-+}
+#include<stdio.h>
+#include<stdlib.h>
+int a(const void*d,const void*n)
+{
+return (*(char*)n)-(*(char*)d);
+}
+void main()
+{
+int i,j,n;
+char str[2*10];
+scanf("%d",&n);
+j=n;
+while(i<n)
+{
+i=0;
+str[i]='B';
+str[j+1]='W';
+j++;
+}
+str[n*2]='\0';
+qsort(str,2*n,sizeof(char),a);
+printf("%s",str);
+}
